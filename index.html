@@ -4,9 +4,47 @@
 	html5up.net | @n33co
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
+
+<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+		function postToGoogle() {
+			var name = $('#name').val();
+			var email = $('#email').val();
+			var message = $('#message').val();
+
+				$.ajax({
+						url: "https://docs.google.com/forms/d/1m-yh2qsPPVx-Y2cIzaT9IO4NqYx4UWjY6ENPAvVKSmI/formResponse",
+						data: {"entry.732478557": name, "entry.1179064550": email, "entry.1793831388": message},
+						type: "POST",
+						dataType: "xml",
+						statusCode: {
+								0: function() {
+										//Success message
+								},
+								200: function() {
+										//Success Message
+								}
+						}
+				});
+		}
+
+		$(document).ready(function(){
+				$('#form').submit(function() {
+						postToGoogle();
+						$('#name').val("");
+						$('#email').val("");
+						$('#message').val("");
+						$('#input-feedback').val("Thank you.")
+						return false;
+				});
+		});
+</script>
+
 <html>
 	<head>
-		<title>Identity by HTML5 UP</title>
+		<title>Shop Local Birmingham</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/html5shiv.js"></script><![endif]-->
@@ -29,16 +67,18 @@
 							<h1>coming soon</h1>
 							<p>Shop Local Birmingham</p>
 						</header>
-						<!--
+
 						<hr />
-						<h2>Extra Stuff!</h2>
-						<form method="post" action="#">
+						<h2>Tell us what you hope this site becomes...</h2>
+						<form id="form" target="_self" action="">
 							<div class="field">
-								<input type="text" name="name" id="name" placeholder="Name" />
+								<input type="text" name="name" id="name" placeholder="Name (optional)" />
 							</div>
 							<div class="field">
-								<input type="email" name="email" id="email" placeholder="Email" />
+								<input type="email" name="email" id="email" placeholder="Email (optional)" />
 							</div>
+
+							<!--
 							<div class="field">
 								<div class="select-wrapper">
 									<select name="department" id="department">
@@ -49,6 +89,7 @@
 									</select>
 								</div>
 							</div>
+						-->
 							<div class="field">
 								<textarea name="message" id="message" placeholder="Message" rows="4"></textarea>
 							</div>
@@ -61,11 +102,13 @@
 								<input type="radio" id="robot_no" name="robot" /><label for="robot_no">No</label>
 							</div>
 							<ul class="actions">
-								<li><a href="#" class="button">Get Started</a></li>
+								<button id="form-submit" type="submit" class="button">Send Message</button>
 							</ul>
 						</form>
 						<hr />
-						-->
+
+						<p id="input-feedback"></p>
+
 						<footer>
 							<!--
 							<ul class="icons">
@@ -80,7 +123,7 @@
 				<!-- Footer -->
 					<footer id="footer">
 						<ul class="copyright">
-							<li>&copy; Jane Doe</li>
+							<li>&copy; Shop Local Birmingham</li>
 							<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 						</ul>
 					</footer>
@@ -98,3 +141,7 @@
 
 	</body>
 </html>
+
+<!--
+https://docs.google.com/forms/d/1m-yh2qsPPVx-Y2cIzaT9IO4NqYx4UWjY6ENPAvVKSmI/formResponse
+-->
