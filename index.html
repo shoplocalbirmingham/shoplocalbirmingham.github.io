@@ -14,6 +14,10 @@
 			var email = $('#email').val();
 			var message = $('#message').val();
 
+			if (!name && !email && !message){
+
+			}
+			else {
 				$.ajax({
 						url: "https://docs.google.com/forms/d/1m-yh2qsPPVx-Y2cIzaT9IO4NqYx4UWjY6ENPAvVKSmI/formResponse",
 						data: {"entry.732478557": name, "entry.1179064550": email, "entry.1793831388": message},
@@ -28,6 +32,9 @@
 								}
 						}
 				});
+
+			}
+
 		}
 
 		$(document).ready(function(){
