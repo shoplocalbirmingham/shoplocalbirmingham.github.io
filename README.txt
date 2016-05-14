@@ -1,4 +1,4 @@
-This site could turn into a full featured. Would like to see how community and shop local enthusiasts would like to see site take shape.
+This site could turn into somehing more fully featured. I'm wanting to see how community and shop local enthusiasts would like to see site take shape.
 
 If you're a developer, please send pull requests!
 
